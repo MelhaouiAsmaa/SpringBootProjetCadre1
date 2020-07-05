@@ -23,6 +23,7 @@ import com.demo.model.Conge;
 import com.demo.model.Employee;
 import com.demo.model.EmployeeFonction;
 import com.demo.model.Equipe;
+import com.demo.model.TypeContratEmployee;
 
 @RestController
 @RequestMapping("/api/employee")
@@ -139,5 +140,11 @@ public class EmployeeWebService {
 	public Employee getEmployeeofUser(@PathVariable Long id)
 	{
 		return service.getUserEmployee(id);
+	}
+	
+	@RequestMapping(value = "/getActualContrat/{id}", method = RequestMethod.GET)
+	public TypeContratEmployee getActualContratEmp(@PathVariable Long id)
+	{
+		return service.getActualContratEmp(id);
 	}
 }

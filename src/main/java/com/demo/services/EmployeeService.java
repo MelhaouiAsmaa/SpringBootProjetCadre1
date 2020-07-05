@@ -13,6 +13,7 @@ import com.demo.model.Conge;
 import com.demo.model.Employee;
 import com.demo.model.EmployeeFonction;
 import com.demo.model.Equipe;
+import com.demo.model.TypeContratEmployee;
 import com.demo.repository.EmployeeRepository;
 
 @Service
@@ -135,6 +136,12 @@ public class EmployeeService implements IEmployeeService{
 		// TODO Auto-generated method stub
 		emp.setArchive(false);
 		return repo.save(emp);
+	}
+
+	@Override
+	public TypeContratEmployee getActualContratEmp(Long id) {
+		// TODO Auto-generated method stub
+		return repo.getActualContrat(id);
 	}
 
 	

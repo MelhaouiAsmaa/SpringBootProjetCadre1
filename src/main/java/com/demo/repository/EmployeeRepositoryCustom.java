@@ -10,6 +10,7 @@ import com.demo.model.Conge;
 import com.demo.model.Employee;
 import com.demo.model.EmployeeFonction;
 import com.demo.model.Equipe;
+import com.demo.model.TypeContratEmployee;
 
 public interface EmployeeRepositoryCustom {
 	
@@ -48,6 +49,10 @@ public interface EmployeeRepositoryCustom {
 	
 	@Query("select e from Employee e where e.archive= true")
 	List<Employee> getArchivedEmployees();
+	
+	@Query("select ec from TypeContratEmployee ec where ec.pkContrat.employee.matricule=:id and CURRENT_DATE between"
+			+ " ec.date_Debut AND ec.date_Fin")
+	TypeContratEmployee getActualContrat(Long id);
 	
 	
 	

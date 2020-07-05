@@ -8,6 +8,7 @@ import com.demo.model.Conge;
 import com.demo.model.Employee;
 import com.demo.model.EmployeeFonction;
 import com.demo.model.Equipe;
+import com.demo.model.TypeContratEmployee;
 
 public interface IEmployeeService {
 
@@ -27,5 +28,6 @@ public interface IEmployeeService {
 	public 	List<Conge> getCongeeByEmployee(Long id);
 	public List<ChargeEmployee> getChargesByEmployees(Long id);
 	public Employee getUserEmployee(Long id);
+	public TypeContratEmployee getActualContratEmp(Long id);
 
 }
