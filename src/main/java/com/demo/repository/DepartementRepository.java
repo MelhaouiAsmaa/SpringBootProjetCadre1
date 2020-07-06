@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.demo.model.Departement;
+import com.demo.model.Employee;
 import com.demo.model.Responsable;
 
 public interface DepartementRepository extends JpaRepository<Departement, Long> {
@@ -26,4 +27,7 @@ public interface DepartementRepository extends JpaRepository<Departement, Long> 
 	Departement TrouverDept(String a);
 	@Query("select t.responsable from Departement t where t.idDepartement=?1 ")
 	Responsable  listerResponsableDepartement(Long id);
+	@Query("select empeq.employee from EmployeeEquipe empeq where empeq.employee.archive=0 and empeq.equipe.idEquipe in( select eq.idEquipe from"
+			+ " Equipe eq where eq.departement.idDepartement=:id)")
+	List<Employee> getEmployeesByDep(Long id);
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.iservices.IDepartementService;
 import com.demo.model.Departement;
+import com.demo.model.Employee;
 import com.demo.model.Responsable;
 
 @RestController
@@ -70,6 +71,16 @@ public class DepartementWebService {
 	public Responsable getResponsableDept()
 	{
 		return service.listerResponsableDept(Long.parseLong("1"));
+	}
+	@RequestMapping(value="/getEmpolyeesByDep/{id}", method=RequestMethod.GET)
+	public List<Employee> getEmpByDep(@PathVariable Long id)
+	{
+		return service.getEmployeesByDepartment(id);
+	}
+	@RequestMapping(value = "/getDepByName/{name}", method = RequestMethod.GET)
+	public Departement getDepByname(@PathVariable String name)
+	{
+		return service.TrouverDepartement(name);
 	}
 
 }

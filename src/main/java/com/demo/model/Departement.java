@@ -24,7 +24,7 @@ public class Departement implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idDepartement;
 	@Column
 	private String nomDepartement;
@@ -124,6 +124,52 @@ public class Departement implements Serializable{
 
 	public void setArchive(boolean archive) {
 		this.archive = archive;
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (archive ? 1231 : 1237);
+		result = prime * result + ((idDepartement == null) ? 0 : idDepartement.hashCode());
+		result = prime * result + ((nomDepartement == null) ? 0 : nomDepartement.hashCode());
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Departement other = (Departement) obj;
+		if (archive != other.archive)
+			return false;
+		if (idDepartement == null) {
+			if (other.idDepartement != null)
+				return false;
+		} else if (!idDepartement.equals(other.idDepartement))
+			return false;
+		if (nomDepartement == null) {
+			if (other.nomDepartement != null)
+				return false;
+		} else if (!nomDepartement.equals(other.nomDepartement))
+			return false;
+		return true;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Departement [idDepartement=" + idDepartement + ", nomDepartement=" + nomDepartement + ", archive="
+				+ archive + "]";
 	}		
 	
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.demo.iservices.IDepartementService;
 import com.demo.model.Departement;
+import com.demo.model.Employee;
 import com.demo.model.Responsable;
 import com.demo.repository.DepartementRepository;
 
@@ -72,6 +73,12 @@ public class DepartementService implements IDepartementService {
 	public Responsable listerResponsableDept(Long id) {
 		// TODO Auto-generated method stub
 		return repo.listerResponsableDepartement(id);
+	}
+
+	@Override
+	public List<Employee> getEmployeesByDepartment(Long id) {
+		// TODO Auto-generated method stub
+		return repo.getEmployeesByDep(id);
 	}
 
 }

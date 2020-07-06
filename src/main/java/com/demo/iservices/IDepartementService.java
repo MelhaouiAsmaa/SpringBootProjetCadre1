@@ -3,6 +3,7 @@ package com.demo.iservices;
 import java.util.List;
 
 import com.demo.model.Departement;
+import com.demo.model.Employee;
 import com.demo.model.Responsable;
 
 public interface IDepartementService {
@@ -17,4 +18,5 @@ public interface IDepartementService {
 	public void modifierDept(Boolean a,Long b);
 	public Departement TrouverDepartement(String a);
 	public Responsable listerResponsableDept(Long id);
+	public List<Employee> getEmployeesByDepartment(Long id);
 }

@@ -1,7 +1,7 @@
 package com.demo.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -41,11 +41,12 @@ public class ResponsableId implements Serializable{
 		this.employee = employee;
 		this.departement = departement;
 	}
-	public Date getDate_debut_res() {
+	
+	public Date getDateDebutRes() {
 		return dateDebutRes;
 	}
-	public void setDate_debut_res(Date date_debut_res) {
-		this.dateDebutRes = date_debut_res;
+	public void setDateDebutRes(Date dateDebutRes) {
+		this.dateDebutRes = dateDebutRes;
 	}
 	public Employee getEmployee() {
 		return employee;
